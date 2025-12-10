@@ -1,1 +1,1 @@
-# auctionhouse-user-service
+# auctionhouse-auth-service
