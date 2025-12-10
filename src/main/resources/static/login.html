@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+<div class="bg-white p-8 rounded-lg shadow w-96">
+    <h1 class="text-center text-2xl font-bold mb-6">Login</h1>
+
+    <label class="font-semibold">Select Role</label>
+    <select id="role" class="border w-full px-3 py-2 rounded mb-6">
+        <option value="user">User</option>
+        <option value="seller">Seller</option>
+    </select>
+
+    <button id="googleBtn"
+            class="w-full bg-red-500 text-white py-2 rounded mb-3">
+        Login with Google
+    </button>
+
+    <button id="githubBtn"
+            class="w-full bg-gray-800 text-white py-2 rounded">
+        Login with GitHub
+    </button>
+</div>
+
+<script>
+    const role = document.getElementById("role");
+
+    document.getElementById("googleBtn").onclick = () => {
+        window.location.href = `/oauth2/authorization/google?role=${encodeURIComponent(role.value)}`;
+    };
+
+    document.getElementById("githubBtn").onclick = () => {
+        window.location.href = `/oauth2/authorization/github?role=${encodeURIComponent(role.value)}`;
+    };
+</script>
+
+</body>
+</html>
